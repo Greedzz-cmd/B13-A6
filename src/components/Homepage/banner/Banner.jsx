@@ -1,7 +1,7 @@
 import React from 'react';
 import { CiPlay1 } from "react-icons/ci";
 import { FaRegDotCircle } from "react-icons/fa";
-import bannerImg from "../../assets/banner.png"
+import bannerImg from "../../../assets/banner.png"
 
 const Banner = () => {
     return (

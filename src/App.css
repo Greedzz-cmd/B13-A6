@@ -47,3 +47,11 @@ body {
   border-radius: 9999px;
   box-shadow: none;
 }
+
+.bg-primary {
+  background: linear-gradient(
+    to bottom,
+    rgba(79, 57, 246, 1) 0%,
+    rgba(149, 20, 250, 1) 100%
+  );
+}
