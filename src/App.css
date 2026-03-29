@@ -1,2 +1,17 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.btn-primary {
+  background: linear-gradient(
+    to bottom,
+    rgba(79, 57, 246, 1) 0%,
+    rgba(149, 20, 250, 1) 100%
+  );
+  color: white;
+  border: none;
+  border-radius: 10000px;
+}
+
+.btn-primary:hover {
+  background: white;
+}
