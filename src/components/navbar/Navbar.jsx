@@ -33,23 +33,25 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
                 <li>
-                <a>Products</a>
-              </li>
-              <li>
-                <a>Features</a>
-              </li>
-              <li>
-                <a>Pricing</a>
-              </li>
-              <li>
-                <a>Testimonials</a>
-              </li>
-              <li>
-                <a>FAQ</a>
-              </li>
+                  <a>Products</a>
+                </li>
+                <li>
+                  <a>Features</a>
+                </li>
+                <li>
+                  <a>Pricing</a>
+                </li>
+                <li>
+                  <a>Testimonials</a>
+                </li>
+                <li>
+                  <a>FAQ</a>
+                </li>
               </ul>
             </div>
-            <a className="btn btn-ghost text-primary text-xl">daisyUI</a>
+            <a className="btn btn-ghost text-primary font-bold text-3xl">
+              DigiTools
+            </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
@@ -97,9 +99,7 @@ const Navbar = () => {
                 </div>
               </div>
               <a className="btn btn-ghost">Log In</a>
-              <a className="btn btn-primary">
-                Get Started
-              </a>
+              <a className="btn btn-primary">Get Started</a>
             </div>
           </div>
         </div>
