@@ -1,17 +1,22 @@
 import React from "react";
 
-const ProductCard = ({ products }) => {
+const ProductCard = ({ products, setBoughtProducts, boughtProducts }) => {
   return (
     <div className="grid grid-cols-3 justify-items-center gap-10">
       {products.map((product) => {
-        let badgeClass;
+        let productBadgeClass;
         if (product.tagType === "best-seller") {
-          badgeClass = "badge-warning";
+          productBadgeClass = "badge-warning";
         } else if (product.tagType === "popular") {
-          badgeClass = "badge-success";
+          productBadgeClass = "badge-success";
         } else {
-          badgeClass = "badge-primary";
+          productBadgeClass = "badge-primary";
         }
+
+        const handleBuyNow = () => {
+          setBoughtProducts([...boughtProducts, product]);
+          console.log(boughtProducts);
+        };
 
         return (
           <div
@@ -21,7 +26,7 @@ const ProductCard = ({ products }) => {
             <div className="card-body">
               <div className="flex justify-end">
                 <span
-                  className={`text-sm badge badge-xs badge-soft ${badgeClass}`}
+                  className={`text-sm badge badge-xs badge-soft ${productBadgeClass}`}
                 >
                   {product.tag}
                 </span>
@@ -34,8 +39,8 @@ const ProductCard = ({ products }) => {
                 </div>
                 <h2 className="text-3xl font-bold">{product.name}</h2>
                 <p className="text-[#627382]">{product.description}</p>
-                <span className="text-xl">
-                  <span className="font-bold">${product.price}</span>
+                <span>
+                  <span className="font-bold text-xl">${product.price}</span>
                   <span className="text-[#627382]">/{product.period}</span>
                 </span>
               </div>
@@ -63,7 +68,12 @@ const ProductCard = ({ products }) => {
                 })}
               </ul>
               <div className="mt-6">
-                <button className="btn btn-primary btn-block">Buy Now</button>
+                <button
+                  onClick={handleBuyNow}
+                  className="btn btn-primary btn-block"
+                >
+                  Buy Now
+                </button>
               </div>
             </div>
           </div>

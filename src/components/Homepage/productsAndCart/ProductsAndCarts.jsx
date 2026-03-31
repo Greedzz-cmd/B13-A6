@@ -1,9 +1,13 @@
-import React, { use } from "react";
-import ProductCard from "./productCard/ProductCard";
+import React, { use, useState } from "react";
+import ProductCards from "./productCards/ProductCards";
+import CartCards from "./cartCards/CartCards";
 
 const ProductsAndCarts = ({ productsPromise }) => {
   const data = use(productsPromise);
-  console.log(data.products);
+
+  const [activeTab, setActiveTab] = useState("products");
+  const [boughtProducts, setBoughtProducts] = useState([]);
+
   return (
     <div className="text-center my-30 container mx-auto">
       <h2 className="text-5xl font-bold">Premium Digital Tools</h2>
@@ -13,10 +17,28 @@ const ProductsAndCarts = ({ productsPromise }) => {
         to boost your productivity and creativity.
       </p>
       <div className="flex gap-4 justify-center mb-10">
-        <button className="btn btn-primary">Products</button>
-        <button className="">Cart (2)</button>
+        <button
+          onClick={() => setActiveTab("products")}
+          className={activeTab === "products" ? "btn btn-primary" : null}
+        >
+          Products
+        </button>
+        <button
+          onClick={() => setActiveTab("cart")}
+          className={activeTab === "cart" ? "btn btn-primary" : null}
+        >
+          Cart ({boughtProducts.length})
+        </button>
       </div>
-      <ProductCard products={data.products}></ProductCard>
+      {activeTab === "products" ? (
+        <ProductCards
+          products={data.products}
+          setBoughtProducts={setBoughtProducts}
+          boughtProducts={boughtProducts}
+        ></ProductCards>
+      ) : (
+        <CartCards boughtProducts={boughtProducts}></CartCards>
+      )}
     </div>
   );
 };
