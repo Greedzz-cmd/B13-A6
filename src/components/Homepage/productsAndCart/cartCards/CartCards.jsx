@@ -34,6 +34,9 @@ const CartCards = ({ boughtProducts }) => {
         <p className="text-[#627382]">Total:</p>
         <p className="font-bold text-xl">${totalProductPrice}</p>
       </div>
+      <div>
+        <button className="btn btn-primary w-full">Proceed to Checkout</button>
+      </div>
     </div>
   );
 };

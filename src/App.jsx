@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import Banner from "./components/Homepage/banner/Banner";
 import ProductsAndCarts from "./components/Homepage/productsAndCart/ProductsAndCarts";
@@ -24,13 +24,15 @@ const fetchPlans = async () => {
   return res.json();
 };
 
+const productsPromise = fetchProducts();
+const stepsPromise = fetchSteps();
+const plansPromise = fetchPlans();
+
 function App() {
-  const productsPromise = fetchProducts();
-  const stepsPromise = fetchSteps();
-  const plansPromise = fetchPlans();
+  const [boughtProducts, setBoughtProducts] = useState([]);
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar boughtProducts={boughtProducts}></Navbar>
       <Banner></Banner>
       <StatsSection></StatsSection>
       <Suspense
@@ -40,7 +42,11 @@ function App() {
           </div>
         }
       >
-        <ProductsAndCarts productsPromise={productsPromise}></ProductsAndCarts>
+        <ProductsAndCarts
+          productsPromise={productsPromise}
+          boughtProducts={boughtProducts}
+          setBoughtProducts={setBoughtProducts}
+        ></ProductsAndCarts>
       </Suspense>
       <Suspense
         fallback={

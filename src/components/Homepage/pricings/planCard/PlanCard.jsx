@@ -11,17 +11,17 @@ const PlanCard = ({ plans }) => {
         let textGray;
 
         if (plan.tag == null) {
-          planBadgeClass = null;
+          planBadgeClass = "";
           cardBgClass = "bg-[#F2F2F2] text-black";
           btnBgClass = "btn-primary";
-          btnTextClass = null;
+          btnTextClass = "";
           textGray = "text-[#627382]";
         } else {
           planBadgeClass = "text-sm badge badge-xs badge-warning badge-soft";
           cardBgClass = "bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white";
           btnBgClass = "bg-white rounded-full";
           btnTextClass = "text-primary";
-          textGray = null;
+          textGray = "";
         }
 
         return (
@@ -65,7 +65,7 @@ const PlanCard = ({ plans }) => {
                   })}
                 </ul>
                 <div className="mt-6">
-                  <button className={`btn ${btnBgClass} btn-block font-bold`}>
+                  <button className={`btn ${btnBgClass} w-full font-bold`}>
                     <span className={btnTextClass}>{plan.buttonText}</span>
                   </button>
                 </div>

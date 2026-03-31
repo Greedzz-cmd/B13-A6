@@ -1,6 +1,9 @@
 import React from "react";
 
 const ProductCard = ({ products, setBoughtProducts, boughtProducts }) => {
+  const handleBuyNow = (product) => {
+    setBoughtProducts([...boughtProducts, product]);
+  };
   return (
     <div className="grid grid-cols-3 justify-items-center gap-10">
       {products.map((product) => {
@@ -12,11 +15,6 @@ const ProductCard = ({ products, setBoughtProducts, boughtProducts }) => {
         } else {
           productBadgeClass = "badge-primary";
         }
-
-        const handleBuyNow = () => {
-          setBoughtProducts([...boughtProducts, product]);
-          console.log(boughtProducts);
-        };
 
         return (
           <div
@@ -69,7 +67,10 @@ const ProductCard = ({ products, setBoughtProducts, boughtProducts }) => {
               </ul>
               <div className="mt-6">
                 <button
-                  onClick={handleBuyNow}
+                  type="button"
+                  onClick={() => {
+                    handleBuyNow(product);
+                  }}
                   className="btn btn-primary btn-block"
                 >
                   Buy Now
