@@ -13,7 +13,13 @@ const fetchSteps = async () => {
   return res.json();
 };
 
+const fetchProducts = async () => {
+  const res = await fetch("/data.json");
+  return res.json();
+};
+
 function App() {
+  const productsPromise = fetchProducts();
   const stepsPromise = fetchSteps();
   return (
     <>
@@ -27,7 +33,7 @@ function App() {
           </div>
         }
       >
-        <ProductsAndCarts></ProductsAndCarts>
+        <ProductsAndCarts productsPromise={productsPromise}></ProductsAndCarts>
       </Suspense>
       <Suspense
         fallback={

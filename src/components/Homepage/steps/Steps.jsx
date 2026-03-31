@@ -3,7 +3,6 @@ import StepCard from "./stepCard/StepCard";
 
 const Steps = ({ stepsPromise }) => {
   const data = use(stepsPromise);
-  console.log(data.steps);
 
   return (
     <div className="text-center bg-[#F9FAFC] py-30">
