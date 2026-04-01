@@ -39,6 +39,9 @@ const Navbar = ({
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
                 <li>
+                  <a href="">Log In</a>
+                </li>
+                <li>
                   <a onClick={() => handleScroll(productsRef)}>Products</a>
                 </li>
                 <li>
@@ -109,7 +112,7 @@ const Navbar = ({
                   </span>
                 </div>
               </div>
-              <a className="btn btn-ghost transition-transform duration-300 hover:-translate-y-2 hover:bg-white">
+              <a className="btn btn-ghost transition-transform duration-300 hover:-translate-y-2 hover:bg-white hidden md:flex ">
                 Log In
               </a>
               <a

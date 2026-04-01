@@ -1,8 +1,9 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const PlanCard = ({ plans }) => {
   return (
-    <div className="flex justify-center gap-8 relative ">
+    <div className="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-8 relative ">
       {plans.map((plan) => {
         let planBadgeClass;
         let cardBgClass;
@@ -66,6 +67,7 @@ const PlanCard = ({ plans }) => {
                 </ul>
                 <div className="mt-6">
                   <button
+                    onClick={() => toast("This feature isnt available yet")}
                     className={`btn ${btnBgClass} w-full font-bold transition-transform duration-300 hover:-translate-y-2`}
                   >
                     <span className={btnTextClass}>{plan.buttonText}</span>

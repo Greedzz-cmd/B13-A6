@@ -2,7 +2,7 @@ import React from "react";
 
 const StatsSection = () => {
   return (
-    <div className="flex md:flex-row flex-col justify-center gap-40 bg-primary text-6xl text-white py-15 text-center">
+    <div className="flex lg:flex-row flex-col justify-center gap-40 bg-primary text-6xl text-white py-15 text-center">
       <div>
         <h3 className="font-bold mb-6">50K+</h3>
         <p className="text-2xl">Active Users</p>

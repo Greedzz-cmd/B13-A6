@@ -5,8 +5,8 @@ import twitterIcon from "../../../assets/twitter.png";
 
 const Footer = () => {
   return (
-    <div className="bg-[#101727] text-white py-30">
-      <div className="flex justify-between container mx-auto">
+    <div className="bg-[#101727] text-white py-30 text-center md:text-left">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-7 container mx-auto">
         <div className="space-y-4">
           <h3 className="text-3xl font-bold">DigiTools</h3>
           <p>
@@ -48,7 +48,7 @@ const Footer = () => {
             <a href="">Press</a>
           </li>
         </ul>
-        <ul className="space-y-4">
+        <ul className="space-y-4 grid">
           <li>
             <h3 className="text-2xl font-medium">Resources</h3>
           </li>
@@ -66,7 +66,7 @@ const Footer = () => {
           </li>
         </ul>
 
-        <div className="space-y-4">
+        <div className="space-y-4 grid justify-items-center">
           <h3 className="text-2xl font-medium">Social Links</h3>
           <ul className="flex gap-3">
             <li>

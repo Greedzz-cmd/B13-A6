@@ -62,7 +62,7 @@ function App() {
       <section ref={productsRef}>
         <Suspense
           fallback={
-            <div className="flex justify-center">
+            <div className="flex justify-center my-30">
               <span className="loading loading-spinner loading-xl"></span>
             </div>
           }
@@ -78,7 +78,7 @@ function App() {
       </section>
       <Suspense
         fallback={
-          <div className="flex justify-center">
+          <div className="flex justify-center my-30">
             <span className="loading loading-spinner loading-xl"></span>
           </div>
         }
@@ -88,7 +88,7 @@ function App() {
       <section ref={plansRef}>
         <Suspense
           fallback={
-            <div className="flex justify-center">
+            <div className="flex justify-center my-30">
               <span className="loading loading-spinner loading-xl"></span>
             </div>
           }

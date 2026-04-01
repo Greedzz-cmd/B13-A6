@@ -16,7 +16,7 @@ const Banner = ({ productsRef, handleScroll, setActiveTab }) => {
                 New: AI-Powered Tools Available
               </p>
             </div>
-            <h1 className="text-7xl font-bold">
+            <h1 className="text-5xl md:text-7xl font-bold">
               Supercharge Your <br />
               <span className="text-primary">Digital Workflow</span>
             </h1>
@@ -26,7 +26,7 @@ const Banner = ({ productsRef, handleScroll, setActiveTab }) => {
               faster today. <br />
               Explore Products
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center lg:justify-start">
               <button
                 className="btn btn-primary transition-transform duration-300 hover:-translate-y-2"
                 onClick={() => {

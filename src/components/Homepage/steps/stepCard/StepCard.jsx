@@ -2,7 +2,7 @@ import React from "react";
 
 const StepCard = ({ steps }) => {
   return (
-    <div className="flex gap-7 justify-center container mx-auto">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 justify-center container mx-auto">
       {steps.map((step) => {
         return (
           <div key={step.id} className="bg-white shadow-md rounded-lg p-5">

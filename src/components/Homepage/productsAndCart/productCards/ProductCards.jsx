@@ -19,7 +19,7 @@ const ProductCard = ({ products, setBoughtProducts, boughtProducts }) => {
     }
   };
   return (
-    <div className="grid grid-cols-3 justify-items-center gap-10">
+    <div className="grid grid-col-1 md:grid-cols-3 justify-items-center gap-10">
       {products.map((product) => {
         let productBadgeClass;
         let buyNowBtnClass = "btn-primary";

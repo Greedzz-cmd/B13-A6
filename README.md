@@ -1,16 +1,33 @@
-# React + Vite
+## Project Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a responsive product showcase and cart management web application built using **React.js, Tailwind CSS, and DaisyUI**. The website allows users to browse different products, view detailed information, and add selected items to a shopping cart. The application demonstrates core React concepts such as component-based architecture, state management, dynamic rendering, and conditional UI updates.
 
-Currently, two official plugins are available:
+The homepage contains a banner section introducing the platform, followed by statistics, product listings, and informational sections designed according to a provided Figma design. Users can switch between the **Products view** and the **Cart view** using toggle buttons in the main section.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+All product information is loaded from a **JSON dataset**, which includes details like product name, description, price, features, and tags. Products are displayed in a responsive **three-column card layout**, where each card contains essential product information along with a **Buy Now** button.
 
-## React Compiler
+When a user clicks the **Buy Now** button, the selected product is added to the cart. The cart section displays all selected products with their icon, name, and price. Users can remove individual items from the cart or proceed to checkout, which clears the cart completely. The cart count is also updated dynamically in the navigation bar.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The website also includes additional UI sections such as **Steps**, **Pricing**, and **Footer**, all designed according to the provided layout guidelines. The entire application is fully responsive, ensuring a smooth experience across desktop, tablet, and mobile devices.
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Product listing displayed in a responsive **3-column card layout**
+- Dynamic product data loaded from **JSON**
+- Toggle between **Products view** and **Cart view**
+- Add products to cart using **Buy Now** button
+- Remove individual items from the cart
+- **Cart count indicator** displayed in the navbar
+- **Proceed to Checkout** functionality to clear the cart
+- Clean and responsive UI built with **Tailwind CSS and DaisyUI**
+- Component-based architecture using **React**
+- Interactive alerts implemented with **React-Toastify**
+
+## Technologies Used
+
+- React.js
+- Tailwind CSS
+- DaisyUI
+- JavaScript (ES6+)
+- React-Toastify
+- JSON (for product data)
