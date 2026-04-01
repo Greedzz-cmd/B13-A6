@@ -8,6 +8,7 @@ import Navbar from "./components/navbar/Navbar";
 import Trial from "./components/Homepage/trial/Trial";
 import Footer from "./components/Homepage/footer/footer";
 import Plans from "./components/Homepage/pricings/Plans";
+import { ToastContainer } from "react-toastify";
 
 const fetchProducts = async () => {
   const res = await fetch("/data.json");
@@ -68,6 +69,7 @@ function App() {
       </Suspense>
       <Trial></Trial>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </>
   );
 }

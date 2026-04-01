@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const CartCards = ({ boughtProducts }) => {
   let totalProductPrice = 0;
@@ -35,7 +36,12 @@ const CartCards = ({ boughtProducts }) => {
         <p className="font-bold text-xl">${totalProductPrice}</p>
       </div>
       <div>
-        <button className="btn btn-primary w-full">Proceed to Checkout</button>
+        <button
+          className="btn btn-primary w-full"
+          onClick={() => toast("Checkout Btn clicked")}
+        >
+          Proceed to Checkout
+        </button>
       </div>
     </div>
   );
