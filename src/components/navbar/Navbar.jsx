@@ -1,6 +1,12 @@
 import React from "react";
 
-const Navbar = ({ boughtProducts }) => {
+const Navbar = ({
+  boughtProducts,
+  productsRef,
+  plansRef,
+  handleScrollCart,
+  handleScroll,
+}) => {
   return (
     <div>
       <div className="bg-base-100 shadow-sm">
@@ -10,7 +16,7 @@ const Navbar = ({ boughtProducts }) => {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden"
+                className="btn btn-ghost lg:hidden transition-transform duration-300 hover:-translate-y-2 hover:bg-white"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +39,13 @@ const Navbar = ({ boughtProducts }) => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <a>Products</a>
+                  <a onClick={() => handleScroll(productsRef)}>Products</a>
                 </li>
                 <li>
                   <a>Features</a>
                 </li>
                 <li>
-                  <a>Pricing</a>
+                  <a onClick={() => handleScroll(plansRef)}>Pricing</a>
                 </li>
                 <li>
                   <a>Testimonials</a>
@@ -49,20 +55,20 @@ const Navbar = ({ boughtProducts }) => {
                 </li>
               </ul>
             </div>
-            <a className="btn btn-ghost text-primary font-bold text-3xl">
+            <a className="btn btn-ghost text-primary font-bold text-3xl ">
               DigiTools
             </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               <li>
-                <a>Products</a>
+                <a onClick={() => handleScroll(productsRef)}>Products</a>
               </li>
               <li>
                 <a>Features</a>
               </li>
               <li>
-                <a>Pricing</a>
+                <a onClick={() => handleScroll(plansRef)}>Pricing</a>
               </li>
               <li>
                 <a>Testimonials</a>
@@ -75,9 +81,10 @@ const Navbar = ({ boughtProducts }) => {
           <div className="navbar-end">
             <div className="flex gap-1.5">
               <div
+                onClick={handleScrollCart}
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost btn-circle"
+                className="btn btn-ghost btn-circle transition-transform duration-300 hover:-translate-y-2 hover:bg-white"
               >
                 <div className="indicator">
                   <svg
@@ -95,13 +102,22 @@ const Navbar = ({ boughtProducts }) => {
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />{" "}
                   </svg>
-                  <span className="badge badge-sm indicator-item">
-                    {boughtProducts.length}
+                  <span
+                    className={`${boughtProducts.length > 0 ? "badge badge-sm indicator-item" : ""}`}
+                  >
+                    {boughtProducts.length > 0 ? boughtProducts.length : ""}
                   </span>
                 </div>
               </div>
-              <a className="btn btn-ghost">Log In</a>
-              <a className="btn btn-primary">Get Started</a>
+              <a className="btn btn-ghost transition-transform duration-300 hover:-translate-y-2 hover:bg-white">
+                Log In
+              </a>
+              <a
+                className="btn btn-primary transition-transform duration-300 hover:-translate-y-2"
+                onClick={() => handleScroll(productsRef)}
+              >
+                Get Started
+              </a>
             </div>
           </div>
         </div>

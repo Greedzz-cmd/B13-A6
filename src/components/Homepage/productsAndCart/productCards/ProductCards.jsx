@@ -1,13 +1,29 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ products, setBoughtProducts, boughtProducts }) => {
   const handleBuyNow = (product) => {
-    setBoughtProducts([...boughtProducts, product]);
+    if (boughtProducts.includes(product)) {
+      toast("This item has already been added to the cart");
+    } else {
+      setBoughtProducts([...boughtProducts, product]);
+      toast(() => (
+        <div className="flex gap-4 px-2 items-center">
+          <div>
+            <img src={product.icon} alt="toast" />
+          </div>
+
+          <p>{product.name} added to cart</p>
+        </div>
+      ));
+    }
   };
   return (
     <div className="grid grid-cols-3 justify-items-center gap-10">
       {products.map((product) => {
         let productBadgeClass;
+        let buyNowBtnClass = "btn-primary";
+        let buyNowBtnText = "Buy Now";
         if (product.tagType === "best-seller") {
           productBadgeClass = "badge-warning";
         } else if (product.tagType === "popular") {
@@ -16,10 +32,16 @@ const ProductCard = ({ products, setBoughtProducts, boughtProducts }) => {
           productBadgeClass = "badge-primary";
         }
 
+        const isInCart = boughtProducts.includes(product);
+        if (isInCart) {
+          buyNowBtnClass = "btn-success text-white rounded-full";
+          buyNowBtnText = "Added to cart";
+        }
+
         return (
           <div
             key={product.id}
-            className="card w-96 bg-base-100 border border-slate-300 shadow-sm text-left"
+            className="card w-96 bg-base-100 border border-slate-300 shadow-sm text-left transition-transform duration-300 hover:-translate-y-2 hover:border-slate-500"
           >
             <div className="card-body">
               <div className="flex justify-end">
@@ -71,9 +93,9 @@ const ProductCard = ({ products, setBoughtProducts, boughtProducts }) => {
                   onClick={() => {
                     handleBuyNow(product);
                   }}
-                  className="btn btn-primary btn-block"
+                  className={`btn ${buyNowBtnClass} btn-block transition-transform duration-300 hover:-translate-y-2`}
                 >
-                  Buy Now
+                  {buyNowBtnText}
                 </button>
               </div>
             </div>

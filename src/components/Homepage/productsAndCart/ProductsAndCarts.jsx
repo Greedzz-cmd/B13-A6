@@ -6,10 +6,10 @@ const ProductsAndCarts = ({
   productsPromise,
   boughtProducts,
   setBoughtProducts,
+  activeTab,
+  setActiveTab,
 }) => {
   const data = use(productsPromise);
-
-  const [activeTab, setActiveTab] = useState("products");
 
   return (
     <div className="text-center my-30 container mx-auto min-h-screen">
@@ -22,13 +22,21 @@ const ProductsAndCarts = ({
       <div className="flex gap-4 justify-center mb-10">
         <button
           onClick={() => setActiveTab("products")}
-          className={activeTab === "products" ? "btn btn-primary" : ""}
+          className={
+            activeTab === "products"
+              ? "btn btn-primary transition-all duration-300 "
+              : ""
+          }
         >
           Products
         </button>
         <button
           onClick={() => setActiveTab("cart")}
-          className={activeTab === "cart" ? "btn btn-primary" : ""}
+          className={
+            activeTab === "cart"
+              ? "btn btn-primary transition-all duration-300"
+              : ""
+          }
         >
           Cart ({boughtProducts.length})
         </button>
@@ -40,7 +48,10 @@ const ProductsAndCarts = ({
           boughtProducts={boughtProducts}
         ></ProductCards>
       ) : (
-        <CartCards boughtProducts={boughtProducts}></CartCards>
+        <CartCards
+          boughtProducts={boughtProducts}
+          setBoughtProduts={setBoughtProducts}
+        ></CartCards>
       )}
     </div>
   );

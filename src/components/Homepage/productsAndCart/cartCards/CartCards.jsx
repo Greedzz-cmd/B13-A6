@@ -1,7 +1,32 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const CartCards = ({ boughtProducts }) => {
+const CartCards = ({ boughtProducts, setBoughtProduts }) => {
+  const handleRemove = (product) => {
+    const updatedBoughtProducts = boughtProducts.filter(
+      (cartProduct) => product.id !== cartProduct.id,
+    );
+    setBoughtProduts(updatedBoughtProducts);
+
+    toast(() => (
+      <div className="flex gap-4 px-2 items-center">
+        <div>
+          <img src={product.icon} alt="toast" />
+        </div>
+
+        <p>{product.name} removed from cart</p>
+      </div>
+    ));
+  };
+
+  const handleCheckout = () => {
+    if (boughtProducts.length === 0) {
+      toast("Please buy an item before checking out");
+    } else {
+      (setBoughtProduts([]), toast("CheckOut successful"));
+    }
+  };
+
   let totalProductPrice = 0;
   return (
     <div className="text-left space-y-6 container mx-auto border-2 border-[#F2F2F2] p-10 rounded-xl">
@@ -25,7 +50,12 @@ const CartCards = ({ boughtProducts }) => {
                 </div>
               </div>
               <div>
-                <button className="btn btn-ghost text-[#FF3980]">Remove</button>
+                <button
+                  className="btn btn-ghost hover:bg-[#F9FAFC] text-[#FF3980]"
+                  onClick={() => handleRemove(product)}
+                >
+                  Remove
+                </button>
               </div>
             </div>
           );
@@ -37,8 +67,8 @@ const CartCards = ({ boughtProducts }) => {
       </div>
       <div>
         <button
-          className="btn btn-primary w-full"
-          onClick={() => toast("Checkout Btn clicked")}
+          className="btn btn-primary  w-full transition-transform duration-300 hover:-translate-y-2"
+          onClick={handleCheckout}
         >
           Proceed to Checkout
         </button>

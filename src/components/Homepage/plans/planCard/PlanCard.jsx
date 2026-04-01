@@ -2,7 +2,7 @@ import React from "react";
 
 const PlanCard = ({ plans }) => {
   return (
-    <div className="flex justify-center gap-8 relative">
+    <div className="flex justify-center gap-8 relative ">
       {plans.map((plan) => {
         let planBadgeClass;
         let cardBgClass;
@@ -27,7 +27,7 @@ const PlanCard = ({ plans }) => {
         return (
           <div key={plan.id}>
             <div
-              className={`card w-96 h-110 ${cardBgClass} shadow-sm text-left`}
+              className={`card w-96 h-110 ${cardBgClass} shadow-sm text-left transition-transform duration-300 hover:-translate-y-2`}
             >
               <div className="card-body">
                 <span className={`${planBadgeClass} absolute -top-2 left-35`}>
@@ -65,7 +65,9 @@ const PlanCard = ({ plans }) => {
                   })}
                 </ul>
                 <div className="mt-6">
-                  <button className={`btn ${btnBgClass} w-full font-bold`}>
+                  <button
+                    className={`btn ${btnBgClass} w-full font-bold transition-transform duration-300 hover:-translate-y-2`}
+                  >
                     <span className={btnTextClass}>{plan.buttonText}</span>
                   </button>
                 </div>

@@ -3,7 +3,7 @@ import { CiPlay1 } from "react-icons/ci";
 import { FaRegDotCircle } from "react-icons/fa";
 import bannerImg from "../../../assets/banner.png";
 
-const Banner = () => {
+const Banner = ({ productsRef, handleScroll, setActiveTab }) => {
   return (
     <div>
       <div className="hero min-h-screen my-20">
@@ -27,8 +27,15 @@ const Banner = () => {
               Explore Products
             </p>
             <div className="flex gap-4">
-              <button className="btn btn-primary">Explore Products</button>
-              <button className="btn btn-secondary">
+              <button
+                className="btn btn-primary transition-transform duration-300 hover:-translate-y-2"
+                onClick={() => {
+                  (handleScroll(productsRef), setActiveTab("products"));
+                }}
+              >
+                Explore Products
+              </button>
+              <button className="btn btn-secondary transition-transform duration-300 hover:-translate-y-2">
                 <span className="text-primary flex gap-2 items-center">
                   <CiPlay1 /> Watch Demo
                 </span>
